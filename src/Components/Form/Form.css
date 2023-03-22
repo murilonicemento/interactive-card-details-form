@@ -74,3 +74,19 @@ button {
 button:hover {
   background-color: hsl(278, 94%, 30%);
 }
+
+@media (min-width: 800px) {
+  form {
+    width: 50%;
+    height: 100%;
+    margin-top: -5%;
+    margin-left: -10%;
+  }
+}
+
+@media (min-width: 1000px) {
+  form {
+    margin-right: -60%;
+    padding-right: 40px;
+  }
+}
