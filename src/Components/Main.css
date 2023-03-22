@@ -63,6 +63,6 @@ main section img:last-child {
 @media (min-width: 1280px) {
   img:first-child {
     order: 2;
-    margin-top: 17px;
+    margin-top: 0;
   }
 }
