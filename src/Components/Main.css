@@ -59,3 +59,10 @@ main section img:last-child {
     margin-left: -40%;
   }
 }
+
+@media (min-width: 1280px) {
+  img:first-child {
+    order: 2;
+    margin-top: 17px;
+  }
+}
