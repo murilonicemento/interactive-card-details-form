@@ -5,6 +5,13 @@
   --active-input-border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
   --input-erros-border: hsl(0, 100%, 66%);
 }
+
+p {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--input-erros-border);
+}
+
 form {
   width: 95%;
   height: 100%;
@@ -40,7 +47,7 @@ input::placeholder {
 }
 
 #date-information {
-  width: 45%;
+  width: 52%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -60,7 +67,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 50%;
+  width: 43%;
   margin-top: -83px;
 }
 
