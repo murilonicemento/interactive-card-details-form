@@ -2,53 +2,69 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Form.css";
 
-export default function Form({ handleChange, handleSubmit }) {
+export default function Form({ handleSubmit }) {
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
       <label htmlFor="cardholder-name">Cardholder Name</label>
       <input
         type="text"
+        autoComplete="off"
         id="cardholder-name"
         placeholder="e.g Jane Appleseed"
-        onChange={handleChange}
+        // onKeyUp={handleKeyUp}
       />
+      <p id="error-cardholder"></p>
       <label htmlFor="card-number">Card Number</label>
       <input
         type="number"
+        autoComplete="off"
         id="card-number"
         placeholder="e.g 1234 5678 9123 0000"
-        onChange={handleChange}
+        // onKeyUp={handleKeyUp}
       />
+      <p id="error-card-number"></p>
       <div>
         <div id="date-information">
           <div>
             <label htmlFor="month">Exp. Date (MM/YY)</label>
             <input
               type="number"
+              autoComplete="off"
               id="month"
               placeholder="MM"
-              onChange={handleChange}
+              min="1"
+              max="12"
+              // onKeyUp={handleKeyUp}
             />
             <input
               type="number"
+              autoComplete="off"
               id="year"
               placeholder="YY"
-              onChange={handleChange}
+              maxLength="2"
+              // onKeyUp={handleKeyUp}
             />
+            <p id="error-month"></p>
           </div>
         </div>
         <span id="cod-information">
           <label htmlFor="cvc">cvc</label>
           <input
             type="number"
+            autoComplete="off"
             id="cvc"
             placeholder="e.g 123"
-            onChange={handleChange}
+            maxLength="3"
+            // onKeyUp={handleKeyUp}
           />
+          <p id="error-cvc"></p>
         </span>
       </div>
-
-      <button onSubmit={handleSubmit}>Confirm</button>
+      <button type="submit">Confirm</button>
     </form>
   );
 }
+
+Form.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+};
