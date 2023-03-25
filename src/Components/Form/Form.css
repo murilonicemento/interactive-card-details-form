@@ -28,11 +28,6 @@ label {
   text-transform: uppercase;
 }
 
-input:focus-within {
-  border: 1px solid hsl(249, 99%, 64%);
-  border-radius: 7px;
-}
-
 input {
   height: 50px;
   border-radius: 7px;

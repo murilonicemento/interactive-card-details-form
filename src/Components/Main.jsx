@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Form from "./Form";
 import frontCardImg from "../img/bg-card-front.png";
 import backCardImg from "../img/bg-card-back.png";
+import cardLogo from "../img/card-logo.svg";
+import iconComplete from "../img/icon-complete.svg";
 import "./Main.css";
 
 export default class Main extends Component {
@@ -17,16 +19,15 @@ export default class Main extends Component {
     const errorCardNumber = document.getElementById("error-card-number");
     const errorMonth = document.getElementById("error-month");
     const errorCvc = document.getElementById("error-cvc");
-    console.log(month);
-    console.log(month.value);
-    console.log(errorMonth);
-    console.log(errorMonth.value);
+
     function blankErrorMessage(input, output) {
       if (input.value.trim() === "") {
         input.style.borderColor = "var(--input-erros-border)";
         output.textContent = "Can't be blank";
+      } else {
+        input.style.borderColor = "hsl(249, 99%, 64%)";
+        output.textContent = "";
       }
-      return;
     }
 
     function formatErrorMessage(input, output) {
@@ -34,7 +35,6 @@ export default class Main extends Component {
         input.style.borderColor = "var(--input-erros-border)";
         output.textContent = "Wrong format, numbers only";
       }
-      return;
     }
 
     blankErrorMessage(cardholder, errorCardholder);
@@ -50,20 +50,24 @@ export default class Main extends Component {
 
     if (month.style.borderColor === "var(--input-erros-border)") {
       document.getElementById("cod-information").style.marginTop = "-110px";
+    } else {
+      document.getElementById("cod-information").style.marginTop = "";
     }
-    cardholder.value = "";
-    cardNumber.value = "";
-    month.value = "";
-    year.value = "";
-    cvc.value = "";
   };
 
   render() {
     return (
       <main>
         <section>
-          <img src={backCardImg} alt="Card Back" />
-          <img src={frontCardImg} alt="Card Front" />
+          <img src={backCardImg} alt="Card Back" id="card-back" />
+          <img src={frontCardImg} alt="Card Front" id="card-front" />
+          <img src={cardLogo} alt="Card Logo" id="card-logo" />
+          <p id="number">0000 0000 0000 0000</p>
+          <div>
+            <p id="name">Jane Appleseed</p>
+            <p id="date">00/00</p>
+          </div>
+          <p id="card-cvc">000</p>
         </section>
         <Form handleSubmit={this.handleSubmit} />
       </main>

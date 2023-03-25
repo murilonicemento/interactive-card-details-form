@@ -11,7 +11,6 @@ export default function Form({ handleSubmit }) {
         autoComplete="off"
         id="cardholder-name"
         placeholder="e.g Jane Appleseed"
-        // onKeyUp={handleKeyUp}
       />
       <p id="error-cardholder"></p>
       <label htmlFor="card-number">Card Number</label>
@@ -20,7 +19,6 @@ export default function Form({ handleSubmit }) {
         autoComplete="off"
         id="card-number"
         placeholder="e.g 1234 5678 9123 0000"
-        // onKeyUp={handleKeyUp}
       />
       <p id="error-card-number"></p>
       <div>
@@ -34,7 +32,6 @@ export default function Form({ handleSubmit }) {
               placeholder="MM"
               min="1"
               max="12"
-              // onKeyUp={handleKeyUp}
             />
             <input
               type="number"
@@ -42,7 +39,6 @@ export default function Form({ handleSubmit }) {
               id="year"
               placeholder="YY"
               maxLength="2"
-              // onKeyUp={handleKeyUp}
             />
             <p id="error-month"></p>
           </div>
@@ -55,7 +51,6 @@ export default function Form({ handleSubmit }) {
             id="cvc"
             placeholder="e.g 123"
             maxLength="3"
-            // onKeyUp={handleKeyUp}
           />
           <p id="error-cvc"></p>
         </span>
