@@ -7,6 +7,26 @@ import iconComplete from "../img/icon-complete.svg";
 import "./Main.css";
 
 export default class Main extends Component {
+  state = {
+    cardholder: "Jane Appleseed",
+    cardNumber: "0000 0000 0000 0000",
+    month: "00",
+    year: "00",
+    cvc: "000",
+  };
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    const number = document.getElementById("number");
+
+    if (name === "cardNumber") {
+      const trimmedValue = value.replace(/\s+/g, "");
+      const formattedValue = trimmedValue.replace(/(.{4})/g, "$1 ");
+      this.setState({ [name]: formattedValue });
+    }
+    this.setState({ [name]: value });
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -56,20 +76,27 @@ export default class Main extends Component {
   };
 
   render() {
+    const { cardholder, cardNumber, month, year, cvc } = this.state;
+
     return (
       <main>
         <section>
           <img src={backCardImg} alt="Card Back" id="card-back" />
           <img src={frontCardImg} alt="Card Front" id="card-front" />
           <img src={cardLogo} alt="Card Logo" id="card-logo" />
-          <p id="number">0000 0000 0000 0000</p>
+          <p id="number">{cardNumber}</p>
           <div>
-            <p id="name">Jane Appleseed</p>
-            <p id="date">00/00</p>
+            <p id="name">{cardholder}</p>
+            <p id="date">
+              {month}/{year}
+            </p>
           </div>
-          <p id="card-cvc">000</p>
+          <p id="card-cvc">{cvc}</p>
         </section>
-        <Form handleSubmit={this.handleSubmit} />
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
       </main>
     );
   }
