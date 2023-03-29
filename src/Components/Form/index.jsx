@@ -74,5 +74,4 @@ export default function Form({ handleSubmit, handleChange }) {
 Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  cardNumber: PropTypes.func.isRequired,
 };

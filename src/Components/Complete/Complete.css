@@ -1,0 +1,39 @@
+#complete-state {
+  display: none;
+  width: 80%;
+  height: auto;
+  margin-top: 20%;
+}
+
+#complete-state img {
+  width: 50%;
+  border-radius: none;
+  box-shadow: none;
+  margin-bottom: 10%;
+}
+
+#complete-state p:nth-child(2) {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--very-dark-violet);
+  margin-bottom: 10%;
+}
+
+#complete-state p:nth-child(3) {
+  font-size: 18px;
+  color: var(--dark-grayish-violet);
+}
+
+#complete-state button {
+  width: 100%;
+  margin-bottom: 10%;
+}
+
+@media (min-width: 1000px) {
+  #complete-state {
+    width: 50%;
+    margin-top: -70%;
+    margin-left: 90%;
+  }
+}

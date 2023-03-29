@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import Complete from "./Complete";
 import frontCardImg from "../img/bg-card-front.png";
 import backCardImg from "../img/bg-card-back.png";
 import cardLogo from "../img/card-logo.svg";
-import iconComplete from "../img/icon-complete.svg";
 import "./Main.css";
 
 export default class Main extends Component {
@@ -17,14 +17,14 @@ export default class Main extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    const number = document.getElementById("number");
 
     if (name === "cardNumber") {
       const trimmedValue = value.replace(/\s+/g, "");
       const formattedValue = trimmedValue.replace(/(.{4})/g, "$1 ");
       this.setState({ [name]: formattedValue });
+    } else {
+      this.setState({ [name]: value });
     }
-    this.setState({ [name]: value });
   };
 
   handleSubmit = (event) => {
@@ -45,8 +45,18 @@ export default class Main extends Component {
         input.style.borderColor = "var(--input-erros-border)";
         output.textContent = "Can't be blank";
       } else {
-        input.style.borderColor = "hsl(249, 99%, 64%)";
-        output.textContent = "";
+        const form = document.querySelector("form");
+        const completeState = document.getElementById("complete-state");
+
+        form.style.display = "none";
+        completeState.style.display = "inherit";
+        document.querySelector("main").style.marginTop = "18%";
+        document.querySelector("main section #card-logo").style.marginBottom =
+          "2%";
+        document.querySelector("main section #number").style.marginTop = "-34%";
+        document.querySelector("main section div").style.marginTop = "-24%";
+        document.querySelector("main section #card-cvc").style.marginBottom =
+          "-91%";
       }
     }
 
@@ -75,6 +85,33 @@ export default class Main extends Component {
     }
   };
 
+  handleClick = (event) => {
+    event.preventDefault();
+
+    document.querySelector("#complete-state").style.display = "none";
+    document.querySelector("form").style.display = "inherit";
+    document.querySelector("main").style.marginTop = "16%";
+    document.querySelector("main section #card-logo").style.marginBottom = "6%";
+    document.querySelector("main section #number").style.marginTop = "-38%";
+    document.querySelector("main section div").style.marginTop = "-28%";
+    document.querySelector("main section #card-cvc").style.marginBottom =
+      "-94%";
+
+    document.getElementById("cardholder-name").value = "";
+    document.getElementById("card-number").value = "";
+    document.getElementById("month").value = "";
+    document.getElementById("year").value = "";
+    document.getElementById("cvc").value = "";
+
+    this.setState({
+      cardholder: "Jane Appleseed",
+      cardNumber: "0000 0000 0000 0000",
+      month: "00",
+      year: "00",
+      cvc: "000",
+    });
+  };
+
   render() {
     const { cardholder, cardNumber, month, year, cvc } = this.state;
 
@@ -97,6 +134,7 @@ export default class Main extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
         />
+        <Complete handleClick={this.handleClick} />
       </main>
     );
   }
