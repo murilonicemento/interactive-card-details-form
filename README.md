@@ -1,4 +1,4 @@
-# React Card Form
+# INTERACTIVE CARD DETAILS FORM
 
 Este projeto consiste em um formulário de cartão de crédito desenvolvido em React. Ele oferece uma interface amigável para coletar informações de cartão de crédito de usuários, incluindo número do cartão, data de validade, nome do titular do cartão e código de segurança.
 
@@ -57,6 +57,12 @@ git push origin minha-contribuicao
 ```
 
 6. Abra um pull request no repositório original.
+
+## Layout Desktop
+<img src=".github/desktop-design.jpg">
+
+## Layout Mobile
+<img src=".github/mobile-design.jpg">
 
 ## Licença
 
